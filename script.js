@@ -24,9 +24,9 @@ window.onload = function() {
     players.push(boxes);
     boxes.moveSideToSide();
   }
-  loopTimer();
-  loop();
-
+  setTimeout(loopTimer,1000);
+  setTimeout(loop,1000);
+  
   for (let i = 0; i < 6; i++) {
     let x = rnd(-20, 20);
     let z = rnd(-20, 20);
