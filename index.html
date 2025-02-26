@@ -1,0 +1,166 @@
+<html>
+<head>
+  <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/c-frame/aframe-extras@7.2.0/dist/aframe-extras.loaders.js"></script>
+  <script src="https://unpkg.com/aframe-environment-component@1.1.0/dist/aframe-environment-component.min.js"></script>
+  <script
+    src="https://cdn.jsdelivr.net/gh/c-frame/aframe-physics-system@v4.2.2/dist/aframe-physics-system.min.js"></script>
+  <script src="script.js"></script>
+  <script src="kinema.js"></script>
+  <script src="goalkeeper.js"></script>
+  <script src="defense.js"></script>
+</head>
+
+<body>
+  <a-scene physics="debug: false">
+    <a-assets>
+      <audio id="crowd" src="soccer-stadium-10-6709.mp3" preload="auto"></audio>
+      <audio id="trigger" src="stadium-crowd-cheer-noise-loud_77bpm.wav" preload="auto"></audio>
+      <a-asset-item id="stade" src="al_wakrah_stadium_worldcup_2022/scene.gltf"></a-asset-item>
+      <a-asset-item id="messi" src="lionel_messi_of_the_argentina/scene.gltf"></a-asset-item>
+      </a-assets>
+      <a-gltf-model src="#messi" position="-10 1.5 -32" scale="1.5 1.5 1.25"></a-gltf-model>
+
+  
+    <a-sound src="#crowdglobal" loop="true" volume="70" autoplay="false" volume="300"></a-sound>
+    <a-sound id="sound-trigger" src="#trigger" autoplay="false" volume="10"></a-sound>
+    <a-plane id="floor" position="0 -0.1 0" rotation="-90 0 0" width="1000" height="1000" static-body
+      color="green"></a-plane>
+    <a-sky color="skyblue"></a-sky>
+    <a-entity gltf-model="#stade" position="0 0 0" scale="1 1 1"></a-entity>
+    <a-sphere radius="200" scale="-1 1 1">
+      <a-gltf-model src="stade.gltf"></a-gltf-model>
+    </a-sphere>
+    <a-entity id="goal_post">
+      <a-cylinder position="-52.15 0 5.3" height="7" color="white" radius="0.1" static-body></a-cylinder>
+      <a-cylinder position="-52.15 3.65 0" height="10.9" color="white" radius="0.1" rotation="90 0 0"
+        static-body></a-cylinder>
+      <a-cylinder position="-52.15 0 -5.5" height="7" color="white" radius="0.1" static-body></a-cylinder>
+
+    </a-entity>
+    <a-box color="#00ff00" opacity="0" height="7" width="10" depth="0.1" position="-52.15 0 10.3" rotation="0 90 0"
+      static-body></a-box>
+    <a-box color="#00ff00" opacity="0" height="7" width="10" depth="0.1" position="-52.15 0 20.3" rotation="0 90 0"
+      static-body></a-box>
+    <a-box color="#00ff00" opacity="0" height="7" width="10" depth="0.1" position="-52.15 0 30.3" rotation="0 90 0"
+      static-body></a-box>
+    <a-box color="#00ff00" opacity="0" height="7" width="10" depth="0.1" position="-47.15 0 35.3" rotation="0 0 0"
+      static-body></a-box>
+    <a-box color="#00ff00" opacity="0" height="7" width="10" depth="0.1" position="-37.15 0 35.3" rotation="0 0 0"
+      static-body></a-box>
+    <a-box color="#00ff00" opacity="0" height="7" width="10" depth="0.1" position="-27.15 0 35.3" rotation="0 0 0"
+      static-body></a-box>
+    <a-box color="#00ff00" opacity="0" height="7" width="10" depth="0.1" position="-17.15 0 35.3" rotation="0 0 0"
+      static-body></a-box>
+    <a-box color="#00ff00" opacity="0" height="7" width="10" depth="0.1" position="-7.15 0 35.3" rotation="0 0 0"
+      static-body></a-box>
+    <a-box color="#00ff00" opacity="0" height="7" width="10" depth="0.1" position="3.15 0 35.3" rotation="0 0 0"
+      static-body></a-box>
+    <a-box color="#00ff00" opacity="0" height="7" width="10" depth="0.1" position="13.15 0 35.3" rotation="0 0 0"
+      static-body></a-box>
+    <a-box color="#00ff00" opacity="0" height="7" width="10" depth="0.1" position="23.15 0 35.3" rotation="0 0 0"
+      static-body></a-box>
+    <a-box color="#00ff00" opacity="0" height="7" width="10" depth="0.1" position="33.15 0 35.3" rotation="0 0 0"
+      static-body></a-box>
+    <a-box color="#00ff00" opacity="0" height="7" width="10" depth="0.1" position="43.15 0 35.3" rotation="0 0 0"
+      static-body></a-box>
+    <a-box color="#00ff00" opacity="0" height="7" width="10" depth="0.1" position="48.15 0 30.3" rotation="0 90 0"
+      static-body></a-box>
+    <a-box color="#00ff00" opacity="0" height="7" width="10" depth="0.1" position="48.15 0 20.3" rotation="0 90 0"
+      static-body></a-box>
+    <a-box color="#00ff00" opacity="0" height="7" width="10" depth="0.1" position="48.15 0 10.3" rotation="0 90 0"
+      static-body></a-box>
+    <a-box color="#00ff00" opacity="0" height="7" width="10" depth="0.1" position="48.15 0 0" rotation="0 90 0"
+      static-body></a-box>
+    <a-box color="#00ff00" opacity="0" height="7" width="10" depth="0.1" position="48.15 0 -10.3" rotation="0 90 0"
+      static-body></a-box>
+    <a-box color="#00ff00" opacity="0" height="7" width="10" depth="0.1" position="48.15 0 -20.3" rotation="0 90 0"
+      static-body></a-box>
+    <a-box color="#00ff00" opacity="0" height="7" width="10" depth="0.1" position="48.15 0 -30.3" rotation="0 90 0"
+      static-body></a-box>
+    <a-box color="#00ff00" opacity="0" height="7" width="10" depth="0.1" position="43.15 0 -35.3" rotation="0 0 0"
+      static-body></a-box>
+    <a-box color="#00ff00" opacity="0" height="7" width="10" depth="0.1" position="33.15 0 -35.3" rotation="0 0 0"
+      static-body></a-box>
+    <a-box color="#00ff00" opacity="0" height="7" width="10" depth="0.1" position="23.15 0 -35.3" rotation="0 0 0"
+      static-body></a-box>
+    <a-box color="#00ff00" opacity="0" height="7" width="10" depth="0.1" position="13.15 0 -35.3" rotation="0 0 0"
+      static-body></a-box>
+    <a-box color="#00ff00" opacity="0" height="7" width="10" depth="0.1" position="3.15 0 -35.3" rotation="0 0 0"
+      static-body></a-box>
+    <a-box color="#00ff00" opacity="0" height="7" width="10" depth="0.1" position="-7.15 0 -35.3" rotation="0 0 0"
+      static-body></a-box>
+    <a-box color="#00ff00" opacity="0" height="7" width="10" depth="0.1" position="-17.15 0 -35.3" rotation="0 0 0"
+      static-body></a-box>
+    <a-box color="#00ff00" opacity="0" height="7" width="10" depth="0.1" position="-27.15 0 -35.3" rotation="0 0 0"
+      static-body></a-box>
+    <a-box color="#00ff00" opacity="0" height="7" width="10" depth="0.1" position="-37.15 0 -35.3" rotation="0 0 0"
+      static-body></a-box>
+    <a-box color="#00ff00" opacity="0" height="7" width="10" depth="0.1" position="-47.15 0 -35.3" rotation="0 0 0"
+      static-body></a-box>
+    <a-box color="#00ff00" opacity="0" height="7" width="10" depth="0.1" position="-52.15 0 -30.3" rotation="0 90 0"
+      static-body></a-box>
+    <a-box color="#00ff00" opacity="0" height="7" width="10" depth="0.1" position="-52.15 0 -20.3" rotation="0 90 0"
+      static-body></a-box>
+    <a-box color="#00ff00" opacity="0" height="7" width="10" depth="0.1" position="-52.15 0 -10.3" rotation="0 90 0"
+      static-body></a-box>
+    <a-box id="trigger-area" color="#00ff00" opacity="0" height="7" width="10" depth="0.1" position="-56.15 0 0"
+      rotation="0 90 0" static-body></a-box>
+    <a-box color="#00ff00" opacity="0" height="7" width="5" depth="0.1" position="-55.15 0 5.245" rotation="0 0 0"
+      static-body></a-box>
+    <a-box color="#00ff00" opacity="0" height="7" width="5" depth="0.1" position="-55.15 0 -5.245" rotation="0 0 0"
+      static-body></a-box>
+    <a-sphere id="ball" radius="0.5" position="0 10 -1" src="ball_texture.jpg" dynamic-body></a-sphere>
+    <a-cylinder radius="0.1" position="0 0 0" height="3" color="gray" static-body></a-cylinder>
+    <a-box id="button" height="0.5" width="0.5" depth="0.5" position="0 1.5 0" color="red"
+      sound="src: #crowd; on: click; loop: true; volume: 1"></a-box>
+    <a-entity id="cameraRig" position="0 1.6 0">
+      <a-camera id="camera" position="0 10 5" look-controls="pointerLockEnabled: false" kinema-body="radius: 1">
+        <a-cursor>
+          <a-text id="time" position="-3.1 1.6 -1" scale="0.7 0.7 0.7" value="Your Time: 0" color="white"
+            font="mozillavr"></a-text>
+          <a-text id="score" position="2.1 1.6 -1" scale="0.7 0.7 0.7" value=" Your Score: 0" color="white"
+            font="mozillavr"></a-text>
+        </a-cursor>
+      </a-camera>
+    </a-entity>
+  </a-scene>
+</body>
+<script>
+  let movingSphere = document.querySelector('#ball');
+  const soundTrigger = document.querySelector('#sound-trigger');
+  const triggerArea = document.querySelector('#trigger-area');
+  let score = 0;
+  const scoreText = document.querySelector('#score');
+
+
+  function updateScore() {
+    scoreText.setAttribute('value', ` Your Score: ${score}`);
+     if(score >= 5){
+       scoreText.setAttribute('value', 'you win');
+     }
+    console.log(score);
+    console.log(scoreText);
+  }
+
+
+  function handleTriggerCollision(event) {
+    console.log(event.detail.body.el);
+    if (event.detail.body.el === movingSphere) {
+      soundTrigger.components.sound.playSound();
+      camera.setAttribute("position", "0 0 0");
+      movingSphere.removeAttribute("dynamic-body");
+      movingSphere.setAttribute("position", "0 1 -5");
+      movingSphere.setAttribute("dynamic-body", "");
+      score++;
+      updateScore();
+
+      for(let defense of players){
+        defense.box.setAttribute("position",{x: rnd(-50,-35), y:1, z:rnd(25,-20)});
+      }
+    }
+  }
+  triggerArea.addEventListener('collide', handleTriggerCollision);
+  
+</script>
+</html>
