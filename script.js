@@ -20,7 +20,7 @@ window.onload = function() {
   box.moveSideToSide();
   
   for (let i = 0; i < playerNum; i++){
-    const boxes = new Defense({x: rnd(-50,-35), y:1, z:rnd(25,-20)});
+    const boxes = new Defense({x: rnd(-50,-35), y:1, z:rnd(20,-20)});
     players.push(boxes);
     boxes.moveSideToSide();
   }
