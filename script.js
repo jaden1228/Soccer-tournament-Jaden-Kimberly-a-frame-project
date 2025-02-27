@@ -16,11 +16,12 @@ window.onload = function() {
   button.onclick = function(){
     this.components.sound.playSound();
   }
+
   const box = new MovingBox({x: -52.25, y: 1, z: 0 });
   box.moveSideToSide();
   
   for (let i = 0; i < playerNum; i++){
-    const boxes = new Defense({x: rnd(-50,-35), y:1, z:rnd(20,-20)});
+    const boxes = new Defense({x: rnd(-50,-35), y:1, z:rnd(20,-15)});
     players.push(boxes);
     boxes.moveSideToSide();
   }
